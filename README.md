@@ -11,7 +11,7 @@ Data Modeling — ออกแบบ Data Warehouse / Star Schema/  fact table /
 # 3. ETL Pipeline — Kids Books
 เอาข้อมูลมาจาก Open Library API โดยไม่ต้องขอ API key 
 
-a) Extract
+## a) Extract
 API_URL = "https://openlibrary.org/subjects/children.json?limit=1000"
 
 resp = requests.get(url, timeout=30)
@@ -20,7 +20,7 @@ works = resp.json().get("works", [])
 เรียก HTTP GET ไปที่ Open Library แล้วดึง field works ออกมาจาก JSON response ตั้ง timeout=30 
 
 
-b) Transform
+## b) Transform
 df_clean = (
     df.select(["title", "first_publish_year"])
     .with_columns(
@@ -35,8 +35,7 @@ df_clean = (
 เลือก 2 column,ทำ strip whitespace หัวท้ายออก, cast ปีเป็น Int64 แบบ strict=False เพื่อไม่ crash ถ้าปีเป็น null, เพิ่ม extracted_at ไว้ tracking และกรอง null/empty ออกก่อน dedup
 
 
-c) Load
-
+## c) Load
 cur.execute("""
     CREATE TABLE kids_books (
         id           INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -50,7 +49,7 @@ cur.executemany(
     df.rows(),
 )
 
-โครงสร้างไฟล์
+-- โครงสร้างไฟล์
 .
 ├── main.py            # ETL pipeline หลัก
 ├── queries.sql        # SQL queries สำหรับวิเคราะห์ข้อมูล
