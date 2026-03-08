@@ -49,25 +49,30 @@ cur.executemany(
     df.rows(),
 )
 
--- โครงสร้างไฟล์
+โครงสร้างไฟล์
 .
 ├── main.py            # ETL pipeline หลัก
+
 ├── queries.sql        # SQL queries สำหรับวิเคราะห์ข้อมูล
+
 ├── kids_library.db    # SQLite database (output)
+
 ├── pipeline.log       # log การทำงานของ pipeline
+
 ├── requirements.txt
+
 └── README.md
 
-วิธีรัน (ใช้Terminalค่ะ)
+### วิธีรัน (ใช้Terminalค่ะ)
 bashpip install -r requirements.txt
 python main.py
   SQLite -> /your/path/kids_library.db
   
-Tech Stack
+### Tech Stack
 Python 3.x
 Polars — Transform DataFrame
 SQLite — RDBMS ปลายทาง
 Requests — เรียก API
 
-Data Source
+### Data Source
 - [Open Library](https://openlibrary.org/)
