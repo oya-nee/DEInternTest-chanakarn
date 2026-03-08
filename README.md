@@ -116,6 +116,13 @@ SQLite — RDBMS ปลายทาง
 
 Requests — เรียก API
 
+## ตัวอย่าง queries ที่ได้
+<img width="717" height="323" alt="Screenshot 2026-03-08 145853" src="https://github.com/user-attachments/assets/b15e36e1-cca3-43da-b642-e78adcb0257c" />
+<img width="716" height="425" alt="Screenshot 2026-03-08 145821" src="https://github.com/user-attachments/assets/56ae97bd-4006-4e08-89b1-090654362197" />
+<img width="728" height="443" alt="Screenshot 2026-03-08 145758" src="https://github.com/user-attachments/assets/861dd93e-6ba8-453b-a697-1925a908d3aa" />
+
+
+
 
 
 ### Data Source
