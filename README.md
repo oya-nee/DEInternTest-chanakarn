@@ -25,17 +25,29 @@ works = resp.json().get("works", [])
 
 ## b) Transform
 df_clean = (
+
     df.select(["title", "first_publish_year"])
+    
     .with_columns(
+    
         pl.col("title").str.strip_chars().alias("book_title"),
+        
         pl.col("first_publish_year").cast(pl.Int64, strict=False),
+        
         pl.lit(datetime.now().strftime("%Y-%m-%d %H:%M:%S")).alias("extracted_at"),
+        
     )
+    
     .filter(pl.col("book_title").is_not_null() & (pl.col("book_title") != ""))
+    
     .unique(subset=["book_title"], keep="first")
+    
     .sort("first_publish_year", descending=True, nulls_last=True)
+    
 )
+
 เลือก 2 column,ทำ strip whitespace หัวท้ายออก, cast ปีเป็น Int64 แบบ strict=False เพื่อไม่ crash ถ้าปีเป็น null, เพิ่ม extracted_at ไว้ tracking และกรอง null/empty ออกก่อน dedup
+
 
 
 ## c) Load
