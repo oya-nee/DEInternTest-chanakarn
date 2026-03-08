@@ -1,14 +1,14 @@
-### 1. Understand what data engineering is and what it is for.
+# 1. Understand what data engineering is and what it is for.
 * Data Engineering คือการสร้างระบบที่ทำให้ข้อมูลดิบกลายเป็นข้อมูลที่พร้อมใช้งาน เพื่อเปลี่ยนข้อมูลดิบให้กลายเป็นข้อมูลที่สะอาด และพร้อมสำหรับการนำไปใช้งานต่อ เพื่อให้ Data Scientists หรือ Analysts สามารถเข้าถึงข้อมูลที่มีคุณภาพได้ทันทีโดยไม่ต้องเสียเวลาคลีนข้อมูลเอง และช่วยให้องค์กรตัดสินใจด้วยข้อมูลได้อย่างแม่นยำและรวดเร็ว
 
 # 2. Basic knowledge that data engineer needs to know
-Python — pipeline, DataFrame ( pandas / polars ), API / database
+** Python — pipeline, DataFrame ( pandas / polars ), API / database 
 SQL — ต้องเข้าใจ JOIN, Window Functions, Query Optimization , ออกแบบ Schema 
 Distributed Computing — เข้าใจว่า Spark หรือ Flink ทำงานแบบ Master-Worker อย่างไร / Batch Processing / Streaming
 Pipeline Orchestration —  Apache Airflow ที่ใช้ตั้งเวลาและจัดลำดับการทำงานของ pipeline แทนการรัน script 
 Data Modeling — ออกแบบ Data Warehouse / Star Schema/  fact table / dimension table 
 
-3. ETL Pipeline — Kids Books
+# 3. ETL Pipeline — Kids Books
 เอาข้อมูลมาจาก Open Library API โดยไม่ต้องขอ API key 
 
 a) Extract
