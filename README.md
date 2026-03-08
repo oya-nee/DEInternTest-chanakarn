@@ -15,8 +15,11 @@ Data Modeling — ออกแบบ Data Warehouse / Star Schema/  fact table /
 API_URL = "https://openlibrary.org/subjects/children.json?limit=1000"
 
 resp = requests.get(url, timeout=30)
+
 resp.raise_for_status()
+
 works = resp.json().get("works", [])
+
 เรียก HTTP GET ไปที่ Open Library แล้วดึง field works ออกมาจาก JSON response ตั้ง timeout=30 
 
 
@@ -36,21 +39,33 @@ df_clean = (
 
 
 ## c) Load
+
 cur.execute("""
+
     CREATE TABLE kids_books (
+    
         id           INTEGER PRIMARY KEY AUTOINCREMENT,
+        
         book_title   TEXT    NOT NULL,
+
         publish_year INTEGER,
+        
         extracted_at TEXT    NOT NULL
+        
     )
+    
 """)
+
 cur.executemany(
+
     "INSERT INTO kids_books (book_title, publish_year, extracted_at) VALUES (?, ?, ?)",
+    
     df.rows(),
 )
 
-โครงสร้างไฟล์
-.
+
+โครงสร้างไฟล์.
+
 ├── main.py            # ETL pipeline หลัก
 
 ├── queries.sql        # SQL queries สำหรับวิเคราะห์ข้อมูล
@@ -63,16 +78,24 @@ cur.executemany(
 
 └── README.md
 
+
 ### วิธีรัน (ใช้Terminalค่ะ)
 bashpip install -r requirements.txt
+
 python main.py
+
   SQLite -> /your/path/kids_library.db
+  
   
 ### Tech Stack
 Python 3.x
+
 Polars — Transform DataFrame
+
 SQLite — RDBMS ปลายทาง
+
 Requests — เรียก API
+
 
 ### Data Source
 - [Open Library](https://openlibrary.org/)
