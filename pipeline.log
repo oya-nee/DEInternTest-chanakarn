@@ -1,0 +1,54 @@
+2026-03-08 10:39:56,153 - INFO - --- ETL Pipeline Started ---
+2026-03-08 10:39:56,153 - INFO - Extracting data from: https://api.rawg.io/api/games?dates=2023-01-01,2023-12-31&ordering=-rating
+2026-03-08 10:39:57,513 - ERROR - Extraction failed: 401 Client Error: Unauthorized for url: https://api.rawg.io/api/games?dates=2023-01-01,2023-12-31&ordering=-rating
+2026-03-08 10:41:14,695 - INFO - --- ETL Pipeline Started ---
+2026-03-08 10:41:14,696 - INFO - Extracting data from: https://openlibrary.org/subjects/computer.json?limit=50
+2026-03-08 10:41:18,880 - INFO - Successfully retrieved 50 records.
+2026-03-08 10:41:18,882 - INFO - Transforming data with Polars...
+2026-03-08 10:41:18,982 - INFO - Transformation complete. 50 records ready.
+2026-03-08 10:41:18,984 - INFO - Loading data into SQL: education_data.db
+2026-03-08 10:41:19,011 - INFO - Load stage successful.
+2026-03-08 10:41:19,022 - INFO - Pipeline finished successfully in 4.33s
+2026-03-08 10:51:06,176 - INFO - Extracting children's books from: https://openlibrary.org/subjects/children.json?limit=50
+2026-03-08 10:51:09,167 - INFO - Successfully retrieved 50 records.
+2026-03-08 10:51:09,169 - INFO - Transforming data...
+2026-03-08 10:51:09,183 - INFO - Loading into SQL: children_library.db
+2026-03-08 10:51:09,207 - INFO - Load stage successful.
+2026-03-08 10:54:58,927 - INFO - Extracting all available kids books from: https://openlibrary.org/subjects/children.json?limit=1000
+2026-03-08 10:55:06,689 - INFO - Successfully retrieved 1000 books.
+2026-03-08 10:55:06,691 - INFO - Transforming and cleaning data...
+2026-03-08 10:55:06,742 - INFO - Cleaned data: 989 unique records ready.
+2026-03-08 10:55:06,743 - INFO - Loading data into SQL: kids_library_full.db
+2026-03-08 10:55:06,771 - INFO - Full Load completed successfully!
+2026-03-08 11:19:10,972 - INFO - Pulling data from: https://openlibrary.org/subjects/children.json?limit=1000
+2026-03-08 11:19:21,644 - INFO - Got 1000 records from API.
+2026-03-08 11:19:21,646 - INFO - Starting transform step...
+2026-03-08 11:19:21,698 - INFO - Transform done — 989 books ready to load.
+2026-03-08 11:19:21,699 - INFO - Writing to database: kids_library.db
+2026-03-08 11:19:21,725 - INFO - Loaded 989 rows into kids_library.db.
+2026-03-08 11:26:43,347 - INFO - Pulling data from: https://openlibrary.org/subjects/children.json?limit=1000
+2026-03-08 11:26:53,457 - INFO - Got 1000 records.
+2026-03-08 11:26:53,459 - INFO - Transforming...
+2026-03-08 11:26:53,509 - INFO - 989 books ready.
+2026-03-08 11:26:53,510 - INFO - Writing to SQLite: kids_library.db
+2026-03-08 11:26:53,531 - INFO - Loaded 989 rows -> kids_library.db
+2026-03-08 11:26:53,532 - INFO - Writing to Excel: kids_library.xlsx
+2026-03-08 11:26:54,194 - INFO - Excel saved -> kids_library.xlsx
+2026-03-08 12:11:21,763 - INFO - Pulling data from: https://openlibrary.org/subjects/children.json?limit=1000
+2026-03-08 12:11:35,990 - INFO - Got 1000 records.
+2026-03-08 12:11:35,992 - INFO - Transforming...
+2026-03-08 12:11:36,031 - INFO - 989 books ready.
+2026-03-08 12:11:36,032 - INFO - Writing to SQLite: kids_library.db
+2026-03-08 12:11:36,047 - INFO - Loaded 989 rows -> kids_library.db
+2026-03-08 12:23:30,975 - INFO - Pulling data from: https://openlibrary.org/subjects/children.json?limit=1000
+2026-03-08 12:23:42,937 - INFO - Got 1000 records.
+2026-03-08 12:23:42,939 - INFO - Transforming...
+2026-03-08 12:23:42,991 - INFO - 989 books ready.
+2026-03-08 12:23:42,991 - INFO - Writing to SQLite: kids_library.db
+2026-03-08 12:23:43,034 - INFO - Loaded 989 rows -> kids_library.db
+2026-03-08 12:31:36,479 - INFO - Pulling data from: https://openlibrary.org/subjects/children.json?limit=1000
+2026-03-08 12:31:49,207 - INFO - Got 1000 records.
+2026-03-08 12:31:49,209 - INFO - Transforming...
+2026-03-08 12:31:49,259 - INFO - 989 books ready.
+2026-03-08 12:31:49,260 - INFO - Writing to SQLite: kids_library.db
+2026-03-08 12:31:49,300 - INFO - Loaded 989 rows -> kids_library.db

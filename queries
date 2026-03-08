@@ -1,0 +1,72 @@
+-- ภาพรวมข้อมูล
+SELECT
+    COUNT(*) AS total_books,
+    COUNT(publish_year) AS has_year,
+    COUNT(*) - COUNT(publish_year) AS missing_year,
+    MIN(publish_year) AS oldest,
+    MAX(publish_year) AS newest
+FROM kids_books;
+
+
+-- หนังสือใหม่สุด 20 เล่ม
+SELECT id, book_title, publish_year
+FROM kids_books
+WHERE publish_year IS NOT NULL
+ORDER BY publish_year DESC
+LIMIT 20;
+
+
+
+-- จำนวนหนังสือแยกตามปี (30 ปีล่าสุด)
+SELECT publish_year, COUNT(*) AS total
+FROM kids_books
+WHERE publish_year >= 1994
+GROUP BY publish_year
+ORDER BY publish_year DESC;
+
+
+-- ค้นหาจากชื่อ 
+SELECT id, book_title, publish_year
+FROM kids_books
+WHERE book_title LIKE '%Harry%'
+ORDER BY publish_year DESC;
+
+
+-- ชื่อยาวสุด 10 อันดับ
+SELECT book_title, LENGTH(book_title) AS len, publish_year
+FROM kids_books
+ORDER BY len DESC
+LIMIT 10;
+
+
+
+-- จำนวนหนังสือแยกตามยุค
+SELECT
+    CASE
+        WHEN publish_year < 1900 THEN 'Before 1900'
+        WHEN publish_year < 1950 THEN '1900-1949'
+        WHEN publish_year < 1980 THEN '1950-1979'
+        WHEN publish_year < 2000 THEN '1980-1999'
+        WHEN publish_year < 2010 THEN '2000-2009'
+        ELSE '2010-present'
+    END AS r,
+    COUNT(*) AS total
+FROM kids_books
+WHERE publish_year IS NOT NULL
+GROUP BY r
+ORDER BY MIN(publish_year);
+
+
+-- duplicate check 
+SELECT book_title, COUNT(*) AS cnt
+FROM kids_books
+GROUP BY book_title
+HAVING cnt > 1;
+
+
+-- null check
+SELECT
+    SUM(CASE WHEN book_title IS NULL OR book_title = '' THEN 1 ELSE 0 END) AS missing_title,
+    SUM(CASE WHEN publish_year IS NULL THEN 1 ELSE 0 END) AS missing_year,
+    SUM(CASE WHEN extracted_at IS NULL THEN 1 ELSE 0 END) AS missing_ts
+FROM kids_books;
