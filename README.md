@@ -101,6 +101,8 @@ cur.executemany(
 bashpip install -r requirements.txt
 
 python main.py
+<img width="1322" height="235" alt="image" src="https://github.com/user-attachments/assets/f2d7c8af-0b48-4a0e-95bd-b72e869477c4" />
+
 
 
   
