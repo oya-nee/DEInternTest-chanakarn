@@ -2,9 +2,9 @@
 Data Engineering เป็นการทำให้ข้อมูลดิบกลายเป็นข้อมูลที่พร้อมใช้งาน เพื่อเปลี่ยนข้อมูลดิบให้กลายเป็นข้อมูลที่สะอาด และพร้อมสำหรับการนำไปใช้งานต่อ เพื่อให้ Data Scientists หรือ Analysts สามารถเข้าถึงข้อมูลที่มีคุณภาพได้ทันทีโดยไม่ต้องเสียเวลาคลีนข้อมูลเอง และช่วยให้องค์กรตัดสินใจด้วยข้อมูลได้อย่างแม่นยำและรวดเร็ว
 
 # 2. Basic knowledge that data engineer needs to know
-Python — pipeline, DataFrame ( pandas / polars ), API / database
+Python — pipeline/ DataFrame ( pandas / polars ), API / database
 
-SQL — ต้องเข้าใจ JOIN, Window Functions, Query Optimization , ออกแบบ Schema 
+SQL — ต้องเข้าใจ JOIN/ Window Functions/ Query Optimization/ ออกแบบ Schema 
 
 Distributed Computing — เข้าใจว่า Spark หรือ Flink ทำงานแบบ Master-Worker อย่างไร / Batch Processing / Streaming
 
